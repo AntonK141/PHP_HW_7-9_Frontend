@@ -1,0 +1,58 @@
+.category-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.category-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.category-box h3 {
+    margin: 10px 0;
+}
+
+.category-box img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.category-box button {
+    background-color: #ff4b4b;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.category-box button:hover {
+    background-color: #ff1f1f;
+}
+
+.add-category {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #d1e7dd;
+    border: 2px dashed #ccc;
+    cursor: pointer;
+}
+
+.add-category a {
+    text-decoration: none;
+    color: #333;
+    font-size: 20px;
+}
+
+.add-category:hover {
+    background-color: #b5e2d0;
+}
