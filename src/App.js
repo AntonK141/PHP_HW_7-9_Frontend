@@ -5,7 +5,7 @@ import CategoryList from './components/CategoryList';
 
 function App() {
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <div className="App">
         <Routes>
           <Route path="/create-category" element={<CreateCategory />} />
