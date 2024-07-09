@@ -1,0 +1,41 @@
+.create-product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.create-product form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.create-product form div {
+    margin-bottom: 15px;
+}
+
+.create-product form label {
+    margin-right: 10px;
+}
+
+.create-product form input[type="text"],
+.create-product form input[type="number"],
+.create-product form input[type="file"] {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.create-product form button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.create-product form button:hover {
+    background-color: #45a049;
+}

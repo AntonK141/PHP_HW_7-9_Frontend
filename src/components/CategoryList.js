@@ -3,6 +3,8 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import './CategoryList.css';
 
+const API_URL = process.env.REACT_APP_API_URL;
+
 const CategoryList = () => {
     const [categories, setCategories] = useState([]);
 
@@ -12,7 +14,8 @@ const CategoryList = () => {
 
     const fetchCategories = async () => {
         try {
-            const response = await axios.get('http://local.spd221.com/HW2/get_categories.php');
+            const response = await axios.get(`${API_URL}/get_categories.php`);
+            console.log('Fetched categories:', response.data);
             setCategories(response.data);
         } catch (error) {
             console.error('Error fetching categories:', error);
@@ -21,7 +24,7 @@ const CategoryList = () => {
 
     const handleDelete = async (id) => {
         try {
-            const response = await axios.delete('http://local.spd221.com/HW2/delete_category.php', {
+            const response = await axios.delete(`${API_URL}/delete_category.php`, {
                 data: { id },
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
@@ -38,9 +41,11 @@ const CategoryList = () => {
         <div className="category-container">
             {categories.map((category) => (
                 <div className="category-box" key={category.id}>
-                    <h3>{category.name}</h3>
-                    <img src={`http://local.spd221.com/HW2/${category.photo}`} alt={category.name} />
-                    <button onClick={() => handleDelete(category.id)}>Delete</button>
+                    <Link to={`/products/${category.id}`}>
+                        <h3>{category.name}</h3>
+                    </Link>
+                    <img src={`${API_URL}/${category.photo}`} alt={category.name} />
+                    <button onClick={() => handleDelete(category.id)} className="delete-button">Delete</button>
                 </div>
             ))}
             <div className="category-box add-category">
@@ -51,3 +56,6 @@ const CategoryList = () => {
 };
 
 export default CategoryList;
+
+
+

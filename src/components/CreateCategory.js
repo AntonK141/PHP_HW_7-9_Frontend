@@ -3,6 +3,8 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './CreateCategory.css';
 
+const API_URL = process.env.REACT_APP_API_URL;
+
 const CreateCategory = () => {
     const [name, setName] = useState('');
     const [photo, setPhoto] = useState(null);
@@ -23,12 +25,12 @@ const CreateCategory = () => {
         formData.append('photo', photo);
 
         try {
-            const response = await axios.post('http://local.spd221.com/HW2/add_category.php', formData, {
+            const response = await axios.post(`${API_URL}/add_category.php`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },
             });
-            console.log(response.data);
+            console.log('Add category response:', response.data);
             navigate('/');
         } catch (error) {
             console.error('There was an error uploading the file!', error);
@@ -54,3 +56,4 @@ const CreateCategory = () => {
 };
 
 export default CreateCategory;
+
